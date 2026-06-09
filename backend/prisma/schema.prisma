@@ -1,0 +1,106 @@
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id           String       @id @default(cuid())
+  email        String       @unique
+  passwordHash String
+  name         String?
+  locale       String       @default("en")
+  createdAt    DateTime     @default(now())
+  invitations  Invitation[]
+}
+
+model Invitation {
+  id             String          @id @default(cuid())
+  slug           String          @unique
+  title          String
+  description    String?
+  location       String?
+  startsAt       DateTime
+  rsvpDeadline   DateTime?
+  imageUrl       String?
+  isOpen         Boolean         @default(true)
+  defaultLocale  String          @default("de")
+  hostId         String
+  host           User            @relation(fields: [hostId], references: [id], onDelete: Cascade)
+  households     Household[]
+  questions      Question[]
+  dismissedPairs DismissedPair[]
+  createdAt      DateTime        @default(now())
+}
+
+model Household {
+  id            String     @id @default(cuid())
+  invitationId  String
+  invitation    Invitation @relation(fields: [invitationId], references: [id], onDelete: Cascade)
+  name          String
+  email         String?
+  pin           String
+  // PENDING | RESPONDED
+  rsvpStatus    String     @default("PENDING")
+  message       String?
+  respondedAt   DateTime?
+  // set when this household was merged into another by the duplicate resolver
+  duplicateOfId String?
+  members       Member[]
+  answers       Answer[]
+  createdAt     DateTime   @default(now())
+
+  @@unique([invitationId, pin])
+}
+
+model Member {
+  id          String    @id @default(cuid())
+  householdId String
+  household   Household @relation(fields: [householdId], references: [id], onDelete: Cascade)
+  name        String
+  attending   Boolean?
+  answers     Answer[]
+}
+
+model Question {
+  id           String     @id @default(cuid())
+  invitationId String
+  invitation   Invitation @relation(fields: [invitationId], references: [id], onDelete: Cascade)
+  // TEXT | YES_NO | SINGLE_CHOICE | MULTI_CHOICE
+  type         String
+  // PER_HOUSEHOLD | PER_MEMBER
+  scope        String
+  required     Boolean    @default(false)
+  labelEn      String
+  labelDe      String
+  // JSON-encoded string arrays, index-aligned across languages
+  optionsEn    String     @default("[]")
+  optionsDe    String     @default("[]")
+  sortOrder    Int        @default(0)
+  answers      Answer[]
+}
+
+model Answer {
+  id          String    @id @default(cuid())
+  questionId  String
+  question    Question  @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  householdId String
+  household   Household @relation(fields: [householdId], references: [id], onDelete: Cascade)
+  memberId    String?
+  member      Member?   @relation(fields: [memberId], references: [id], onDelete: Cascade)
+  // JSON-encoded: string for TEXT/YES_NO, number for SINGLE_CHOICE, number[] for MULTI_CHOICE
+  value       String
+}
+
+model DismissedPair {
+  id           String     @id @default(cuid())
+  invitationId String
+  invitation   Invitation @relation(fields: [invitationId], references: [id], onDelete: Cascade)
+  aId          String
+  bId          String
+
+  @@unique([invitationId, aId, bId])
+}

@@ -1,0 +1,172 @@
+{
+  "common": {
+    "appName": "Einladung",
+    "loading": "Lädt…",
+    "save": "Speichern",
+    "cancel": "Abbrechen",
+    "delete": "Löschen",
+    "edit": "Bearbeiten",
+    "add": "Hinzufügen",
+    "back": "Zurück",
+    "copy": "Kopieren",
+    "copied": "Kopiert!",
+    "yes": "Ja",
+    "no": "Nein",
+    "logout": "Abmelden",
+    "optional": "optional",
+    "confirmDelete": "Bist du sicher? Das kann nicht rückgängig gemacht werden."
+  },
+  "auth": {
+    "login": "Anmelden",
+    "register": "Konto erstellen",
+    "email": "E-Mail",
+    "password": "Passwort",
+    "passwordHint": "Mindestens 8 Zeichen",
+    "name": "Dein Name",
+    "noAccount": "Noch kein Konto? Jetzt erstellen",
+    "haveAccount": "Schon ein Konto? Anmelden"
+  },
+  "dashboard": {
+    "title": "Deine Einladungen",
+    "new": "Neue Einladung",
+    "empty": "Noch keine Einladungen. Erstelle deine erste!",
+    "households": "Haushalte",
+    "responded": "Geantwortet",
+    "pending": "Ausstehend",
+    "attending": "Zusagen",
+    "declined": "Absagen",
+    "closed": "Rückmeldung geschlossen"
+  },
+  "editor": {
+    "createTitle": "Neue Einladung",
+    "settingsTitle": "Einstellungen",
+    "title": "Titel",
+    "description": "Beschreibung",
+    "location": "Ort",
+    "startsAt": "Datum & Uhrzeit",
+    "rsvpDeadline": "Rückmeldefrist",
+    "defaultLocale": "Standardsprache der Einladungsseite",
+    "image": "Titelbild",
+    "uploadImage": "Bild hochladen",
+    "removeImage": "Bild entfernen",
+    "create": "Einladung erstellen",
+    "rsvpOpen": "Rückmeldungen sind offen",
+    "rsvpClosedToggle": "Rückmeldungen sind geschlossen",
+    "deleteInvitation": "Einladung löschen"
+  },
+  "tabs": {
+    "overview": "Übersicht",
+    "guests": "Gästeliste",
+    "questions": "Fragen",
+    "duplicates": "Duplikate",
+    "settings": "Einstellungen"
+  },
+  "overview": {
+    "shareLink": "Link zum Teilen",
+    "exportCsv": "CSV exportieren",
+    "responses": "Antworten",
+    "household": "Haushalt",
+    "status": "Status",
+    "members": "Mitglieder",
+    "message": "Nachricht",
+    "respondedAt": "Geantwortet",
+    "statusPENDING": "Ausstehend",
+    "statusRESPONDED": "Geantwortet",
+    "noHouseholds": "Füge in der Gästeliste Haushalte hinzu, um Rückmeldungen zu sammeln."
+  },
+  "guests": {
+    "addHousehold": "Haushalt hinzufügen",
+    "bulkAdd": "Mehrere hinzufügen",
+    "bulkHelp": "Ein Haushalt pro Zeile: Name; Mitglied 1, Mitglied 2; E-Mail (optional)",
+    "bulkPlaceholder": "Familie Müller; Anna, Tom; mueller@example.com\nMax Mustermann; Max",
+    "name": "Name des Haushalts",
+    "email": "E-Mail",
+    "members": "Mitglieder",
+    "memberName": "Name des Mitglieds",
+    "addMember": "Mitglied hinzufügen",
+    "pin": "PIN",
+    "regeneratePin": "Neue PIN",
+    "empty": "Noch keine Haushalte."
+  },
+  "questions": {
+    "title": "Zusätzliche Fragen",
+    "add": "Frage hinzufügen",
+    "empty": "Keine zusätzlichen Fragen. Füge z. B. eine Menüwahl hinzu.",
+    "type": "Typ",
+    "typeTEXT": "Freitext",
+    "typeYES_NO": "Ja / Nein",
+    "typeSINGLE_CHOICE": "Einfachauswahl",
+    "typeMULTI_CHOICE": "Mehrfachauswahl",
+    "scope": "Gefragt",
+    "scopePER_HOUSEHOLD": "Einmal pro Haushalt",
+    "scopePER_MEMBER": "Pro teilnehmendem Mitglied",
+    "required": "Pflichtfrage",
+    "labelEn": "Frage (Englisch)",
+    "labelDe": "Frage (Deutsch)",
+    "optionsEn": "Optionen (Englisch)",
+    "optionsDe": "Optionen (Deutsch)",
+    "addOption": "Option hinzufügen",
+    "optionsHint": "Die Optionen müssen in beiden Sprachen zeilenweise übereinstimmen."
+  },
+  "duplicates": {
+    "title": "Mögliche Duplikate",
+    "empty": "Keine Duplikate gefunden. 🎉",
+    "reason": {
+      "similarName": "Ähnlicher Haushaltsname",
+      "sameEmail": "Gleiche E-Mail-Adresse",
+      "sameMembers": "Identische Mitglieder"
+    },
+    "keepThis": "Diesen behalten",
+    "keepBoth": "Beide behalten",
+    "deleteThis": "Diesen löschen",
+    "mergeHint": "„Diesen behalten\" führt den anderen Haushalt hierhin zusammen und leitet dessen PIN um.",
+    "respondedBadge": "hat geantwortet"
+  },
+  "public": {
+    "when": "Wann",
+    "where": "Wo",
+    "rsvpBy": "Bitte antworte bis",
+    "rsvpButton": "Jetzt antworten",
+    "pinTitle": "PIN eingeben",
+    "pinHelp": "Deine 6-stellige PIN findest du auf deiner Einladung.",
+    "pinSubmit": "Weiter",
+    "closed": "Rückmeldungen sind für diese Veranstaltung geschlossen.",
+    "hello": "Hallo, {{name}}!",
+    "whoAttends": "Wer nimmt teil?",
+    "memberYes": "Nimmt teil",
+    "memberNo": "Nimmt nicht teil",
+    "questionsTitle": "Ein paar Fragen",
+    "forMember": "Für {{name}}",
+    "message": "Nachricht an die Gastgeber",
+    "submit": "Antwort senden",
+    "updateNote": "Ihr habt bereits geantwortet. Ihr könnt eure Antworten unten aktualisieren.",
+    "thanksTitle": "Vielen Dank!",
+    "thanksBody": "Eure Antwort wurde gespeichert. Ihr könnt jederzeit mit eurer PIN zurückkommen und sie ändern.",
+    "editAgain": "Antwort bearbeiten",
+    "notFound": "Diese Einladung existiert nicht."
+  },
+  "errors": {
+    "validation": "Bitte überprüfe deine Eingaben.",
+    "server": "Etwas ist schiefgelaufen. Bitte versuche es erneut.",
+    "network": "Netzwerkfehler. Bitte prüfe deine Verbindung.",
+    "notFound": "Nicht gefunden.",
+    "rateLimited": "Zu viele Versuche. Bitte warte ein paar Minuten.",
+    "auth": {
+      "required": "Bitte melde dich an.",
+      "emailTaken": "Diese E-Mail ist bereits registriert.",
+      "invalidCredentials": "Falsche E-Mail oder falsches Passwort."
+    },
+    "pin": {
+      "invalid": "Ungültige PIN.",
+      "sessionExpired": "Deine Sitzung ist abgelaufen. Bitte gib deine PIN erneut ein."
+    },
+    "rsvp": {
+      "closed": "Rückmeldungen sind geschlossen.",
+      "missingRequired": "Bitte beantworte alle Pflichtfragen."
+    },
+    "upload": {
+      "invalidType": "Bitte lade ein Bild im JPG-, PNG- oder WebP-Format hoch.",
+      "tooLarge": "Das Bild ist zu groß (max. 5 MB)."
+    }
+  }
+}

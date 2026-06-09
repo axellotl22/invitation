@@ -1,0 +1,172 @@
+{
+  "common": {
+    "appName": "Invitation",
+    "loading": "Loading…",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "add": "Add",
+    "back": "Back",
+    "copy": "Copy",
+    "copied": "Copied!",
+    "yes": "Yes",
+    "no": "No",
+    "logout": "Log out",
+    "optional": "optional",
+    "confirmDelete": "Are you sure? This cannot be undone."
+  },
+  "auth": {
+    "login": "Log in",
+    "register": "Create account",
+    "email": "Email",
+    "password": "Password",
+    "passwordHint": "At least 8 characters",
+    "name": "Your name",
+    "noAccount": "No account yet? Create one",
+    "haveAccount": "Already have an account? Log in"
+  },
+  "dashboard": {
+    "title": "Your invitations",
+    "new": "New invitation",
+    "empty": "No invitations yet. Create your first one!",
+    "households": "Households",
+    "responded": "Responded",
+    "pending": "Pending",
+    "attending": "Attending",
+    "declined": "Declined",
+    "closed": "RSVP closed"
+  },
+  "editor": {
+    "createTitle": "New invitation",
+    "settingsTitle": "Settings",
+    "title": "Title",
+    "description": "Description",
+    "location": "Location",
+    "startsAt": "Date & time",
+    "rsvpDeadline": "RSVP deadline",
+    "defaultLocale": "Default language of the invitation page",
+    "image": "Cover image",
+    "uploadImage": "Upload image",
+    "removeImage": "Remove image",
+    "create": "Create invitation",
+    "rsvpOpen": "RSVPs are open",
+    "rsvpClosedToggle": "RSVPs are closed",
+    "deleteInvitation": "Delete invitation"
+  },
+  "tabs": {
+    "overview": "Overview",
+    "guests": "Guest list",
+    "questions": "Questions",
+    "duplicates": "Duplicates",
+    "settings": "Settings"
+  },
+  "overview": {
+    "shareLink": "Share link",
+    "exportCsv": "Export CSV",
+    "responses": "Responses",
+    "household": "Household",
+    "status": "Status",
+    "members": "Members",
+    "message": "Message",
+    "respondedAt": "Responded",
+    "statusPENDING": "Pending",
+    "statusRESPONDED": "Responded",
+    "noHouseholds": "Add households in the guest list to start collecting RSVPs."
+  },
+  "guests": {
+    "addHousehold": "Add household",
+    "bulkAdd": "Bulk add",
+    "bulkHelp": "One household per line: name; member 1, member 2; email (optional)",
+    "bulkPlaceholder": "Smith family; Anna, Tom; smith@example.com\nJohn Doe; John",
+    "name": "Household name",
+    "email": "Email",
+    "members": "Members",
+    "memberName": "Member name",
+    "addMember": "Add member",
+    "pin": "PIN",
+    "regeneratePin": "New PIN",
+    "empty": "No households yet."
+  },
+  "questions": {
+    "title": "Additional questions",
+    "add": "Add question",
+    "empty": "No additional questions. Add one, e.g. a meal choice.",
+    "type": "Type",
+    "typeTEXT": "Free text",
+    "typeYES_NO": "Yes / No",
+    "typeSINGLE_CHOICE": "Single choice",
+    "typeMULTI_CHOICE": "Multiple choice",
+    "scope": "Asked",
+    "scopePER_HOUSEHOLD": "Once per household",
+    "scopePER_MEMBER": "Per attending member",
+    "required": "Required",
+    "labelEn": "Question (English)",
+    "labelDe": "Question (German)",
+    "optionsEn": "Options (English)",
+    "optionsDe": "Options (German)",
+    "addOption": "Add option",
+    "optionsHint": "Options must match in both languages, line by line."
+  },
+  "duplicates": {
+    "title": "Possible duplicates",
+    "empty": "No duplicates found. 🎉",
+    "reason": {
+      "similarName": "Similar household name",
+      "sameEmail": "Same email address",
+      "sameMembers": "Identical members"
+    },
+    "keepThis": "Keep this one",
+    "keepBoth": "Keep both",
+    "deleteThis": "Delete this one",
+    "mergeHint": "\"Keep this one\" merges the other household into it and redirects its PIN.",
+    "respondedBadge": "has responded"
+  },
+  "public": {
+    "when": "When",
+    "where": "Where",
+    "rsvpBy": "Please reply by",
+    "rsvpButton": "RSVP now",
+    "pinTitle": "Enter your PIN",
+    "pinHelp": "You'll find your 6-digit PIN on your invitation.",
+    "pinSubmit": "Continue",
+    "closed": "RSVPs are closed for this event.",
+    "hello": "Hello, {{name}}!",
+    "whoAttends": "Who will attend?",
+    "memberYes": "Attending",
+    "memberNo": "Not attending",
+    "questionsTitle": "A few questions",
+    "forMember": "For {{name}}",
+    "message": "Message to the hosts",
+    "submit": "Send RSVP",
+    "updateNote": "You already responded. You can update your answers below.",
+    "thanksTitle": "Thank you!",
+    "thanksBody": "Your RSVP has been saved. You can come back anytime and update it with your PIN.",
+    "editAgain": "Edit response",
+    "notFound": "This invitation does not exist."
+  },
+  "errors": {
+    "validation": "Please check your input.",
+    "server": "Something went wrong. Please try again.",
+    "network": "Network error. Please check your connection.",
+    "notFound": "Not found.",
+    "rateLimited": "Too many attempts. Please wait a few minutes.",
+    "auth": {
+      "required": "Please log in.",
+      "emailTaken": "This email is already registered.",
+      "invalidCredentials": "Wrong email or password."
+    },
+    "pin": {
+      "invalid": "Invalid PIN.",
+      "sessionExpired": "Your session expired. Please enter your PIN again."
+    },
+    "rsvp": {
+      "closed": "RSVPs are closed.",
+      "missingRequired": "Please answer all required questions."
+    },
+    "upload": {
+      "invalidType": "Please upload a JPG, PNG or WebP image.",
+      "tooLarge": "The image is too large (max. 5 MB)."
+    }
+  }
+}
