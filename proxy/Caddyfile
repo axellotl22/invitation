@@ -1,0 +1,25 @@
+# Single public entry point: SPA and API share one origin, so the browser
+# never makes a cross-origin request and CORS is a non-issue.
+#
+# SITE_ADDRESS defaults to :80 (plain HTTP, e.g. behind another proxy or for
+# local use). Set it to your domain (e.g. invite.example.com) and Caddy
+# provisions HTTPS automatically via Let's Encrypt.
+{$SITE_ADDRESS::80} {
+	encode zstd gzip
+
+	request_body {
+		max_size 6MB
+	}
+
+	handle /api/* {
+		reverse_proxy backend:3001
+	}
+
+	handle /uploads/* {
+		reverse_proxy backend:3001
+	}
+
+	handle {
+		reverse_proxy frontend:80
+	}
+}

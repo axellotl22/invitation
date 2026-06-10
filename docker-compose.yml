@@ -1,8 +1,14 @@
 services:
   proxy:
     build: ./proxy
+    environment:
+      SITE_ADDRESS: ${SITE_ADDRESS:-:80}
     ports:
       - "${APP_PORT:-8080}:80"
+      - "${APP_TLS_PORT:-8443}:443"
+    volumes:
+      - caddy-data:/data
+      - caddy-config:/config
     depends_on:
       - backend
       - frontend
@@ -27,3 +33,5 @@ services:
 volumes:
   db-data:
   uploads:
+  caddy-data:
+  caddy-config:

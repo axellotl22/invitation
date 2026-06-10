@@ -16,7 +16,7 @@ Create event invitations, share one link, and collect RSVPs **per household** �
 
 - **Backend:** Node.js, Fastify, TypeScript, Prisma (SQLite), JWT cookie auth, sharp for image processing.
 - **Frontend:** React 18, Vite, TypeScript, Tailwind CSS, react-router, react-i18next.
-- **Reverse proxy:** nginx in front of both services — the SPA and the API share one origin, so the browser never makes a cross-origin request and CORS is a non-issue.
+- **Reverse proxy:** Caddy in front of both services — the SPA and the API share one origin, so the browser never makes a cross-origin request and CORS is a non-issue. Point `SITE_ADDRESS` at a real domain and Caddy provisions HTTPS automatically.
 
 ## Run with Docker
 
@@ -25,12 +25,23 @@ cp .env.example .env          # set JWT_SECRET to a long random string
 docker compose up --build
 ```
 
-Open http://localhost:8080. All traffic enters through the `proxy` container, which routes `/api` and `/uploads` to the backend and everything else to the static frontend. The SQLite database and uploaded images live in named volumes (`db-data`, `uploads`).
+Open http://localhost:8080. All traffic enters through the `proxy` container (Caddy), which routes `/api` and `/uploads` to the backend and everything else to the static frontend. The SQLite database and uploaded images live in named volumes (`db-data`, `uploads`).
 
 ```
-browser ──:8080──▶ proxy (nginx) ──▶ /api, /uploads ──▶ backend (Fastify :3001)
+browser ──:8080──▶ proxy (Caddy) ──▶ /api, /uploads ──▶ backend (Fastify :3001)
                                 └──▶ /*             ──▶ frontend (nginx, static SPA)
 ```
+
+For production with automatic HTTPS, set in `.env`:
+
+```bash
+SITE_ADDRESS=invite.example.com
+APP_PORT=80
+APP_TLS_PORT=443
+COOKIE_SECURE=true
+```
+
+Caddy then obtains and renews a Let's Encrypt certificate on its own (certificates persist in the `caddy-data` volume).
 
 ## Local development
 
