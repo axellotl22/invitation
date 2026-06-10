@@ -1,11 +1,18 @@
 services:
+  proxy:
+    build: ./proxy
+    ports:
+      - "${APP_PORT:-8080}:80"
+    depends_on:
+      - backend
+      - frontend
+    restart: unless-stopped
+
   backend:
     build: ./backend
     environment:
       DATABASE_URL: "file:/data/app.db"
       UPLOAD_DIR: /uploads
-      # Same-origin behind the nginx proxy, so CORS only matters for local dev
-      CORS_ORIGIN: ${CORS_ORIGIN:-http://localhost:8080}
       JWT_SECRET: ${JWT_SECRET:?set JWT_SECRET in .env}
       COOKIE_SECURE: ${COOKIE_SECURE:-false}
     volumes:
@@ -15,10 +22,6 @@ services:
 
   frontend:
     build: ./frontend
-    ports:
-      - "${APP_PORT:-8080}:80"
-    depends_on:
-      - backend
     restart: unless-stopped
 
 volumes:

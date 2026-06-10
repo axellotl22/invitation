@@ -16,6 +16,7 @@ Create event invitations, share one link, and collect RSVPs **per household** �
 
 - **Backend:** Node.js, Fastify, TypeScript, Prisma (SQLite), JWT cookie auth, sharp for image processing.
 - **Frontend:** React 18, Vite, TypeScript, Tailwind CSS, react-router, react-i18next.
+- **Reverse proxy:** nginx in front of both services — the SPA and the API share one origin, so the browser never makes a cross-origin request and CORS is a non-issue.
 
 ## Run with Docker
 
@@ -24,7 +25,12 @@ cp .env.example .env          # set JWT_SECRET to a long random string
 docker compose up --build
 ```
 
-Open http://localhost:8080. The SQLite database and uploaded images live in named volumes (`db-data`, `uploads`).
+Open http://localhost:8080. All traffic enters through the `proxy` container, which routes `/api` and `/uploads` to the backend and everything else to the static frontend. The SQLite database and uploaded images live in named volumes (`db-data`, `uploads`).
+
+```
+browser ──:8080──▶ proxy (nginx) ──▶ /api, /uploads ──▶ backend (Fastify :3001)
+                                └──▶ /*             ──▶ frontend (nginx, static SPA)
+```
 
 ## Local development
 
@@ -38,7 +44,7 @@ npx prisma migrate dev
 npm run dev
 ```
 
-Frontend (port 5173, proxies `/api` and `/uploads` to the backend):
+Frontend (port 5173 — Vite's dev server proxies `/api` and `/uploads` to the backend, so development is also CORS-free):
 
 ```bash
 cd frontend
